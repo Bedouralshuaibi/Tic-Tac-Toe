@@ -12,6 +12,9 @@ const makeTheList = function(){
        }
     }
 makeTheList()
+////////// audio///////
+// var audioElement = new Audio('/Users/bedourfsh/sei/projects/Tic-Tac-Toe/Winning-sound-effect');
+
 
 ///  set up the event listener for a card. If a card is clicked:
 // display the card's symbol
@@ -21,7 +24,7 @@ const cards = $(".cell");
 let turen = document.querySelector(".turen");
 let move = 0;
 let winArry =[];
-turen.innerHTML = "It is X Turn "
+turen.innerHTML = "The turn is for <b>X</b> user";
 
 /////////// hover change the color 
 
@@ -37,7 +40,7 @@ for (let i=0; i < cards.length ;  i++){
     card.addEventListener("click", function(){
       if (card.innerText === "" ) { /* make sure user not changing the input */
           if ( flag) {
-            turen.innerHTML = "It is O Turn "
+            turen.innerHTML = "The turn is for <b>O</b> user "
             card.innerText = "X";
             flag = false;
             move ++;
@@ -48,17 +51,12 @@ for (let i=0; i < cards.length ;  i++){
           } else {  // O turn
              card.innerText = "O";
              flag = true;
-             turen.innerHTML = "It is X Turn";
+             turen.innerHTML = "The turn is for <b>X</b> user ";
              checkWinnerOfO(cards);
           }
       } else {
           console.log("it is taken")
         }
-      // if ((move === 5)&&(winArry.length === 0))
-      //   {
-      //    console.log('tie');
-      //    tieWindow(); 
-      //   }
       checkIfTie()
        
         
@@ -66,7 +64,6 @@ for (let i=0; i < cards.length ;  i++){
       
      
 }
-console.log(cards.length)
 
 const checkWinnerOfX = function(cards){
     
@@ -169,17 +166,18 @@ let playmore = document.querySelector('button');
 function winnerWindow()
    {
      modal.style.display = 'block';
-     info.innerHTML = '<h1> You Won!</h1><br><p> <br> Wooooooo! </p>';
-     
-      var x = document.getElementById("myAudio").autoplay;
-      document.getElementById("demo").innerHTML = x;
+    //  audioElement.play(); // audio
+     if (winArry != 0){
+     info.innerHTML = '<h1> X user is Won!</h1><br><p> <br> Wooooooo! </p>';
+     } else {info.innerHTML = '<h1> O user is Won!</h1><br><p> <br> Wooooooo! </p>'}
+      
     
  }
  function tieWindow()
    {
      modal.style.display = 'block';
     
-     info.innerHTML = '<p> its Tie </p>';
+     info.innerHTML = "<p> it's a Tie </p>";
     }
   playmore.addEventListener('click', function()
 {
@@ -188,3 +186,10 @@ function winnerWindow()
 
 
 });
+
+
+/////// Restart Button //////
+let restart = document.querySelector('.restart');
+  restart.addEventListener('click', (e) =>{
+    window.location.reload();});
+
