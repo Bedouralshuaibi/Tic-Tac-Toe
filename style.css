@@ -30,7 +30,6 @@ body {
         min-height: 500px;
         margin: 0 0 3em;
         padding: 32px;
-       
         border-radius: 10px;
         display: flex;
         flex-wrap: wrap;
@@ -52,7 +51,15 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+/* //////////// banner //////////*/
+.banner {
+  text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
+}
+.turen {
+  float: left;
+}
 
 /*//////////// model //////*/
 

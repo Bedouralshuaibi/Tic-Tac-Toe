@@ -5,15 +5,12 @@ let list = [ "","","","","",
 const bord = $(".bord");
 
 const makeTheList = function(){
-    // shuffle(list);
     for (let i=0; i < list.length; i++){
        const li = $("<li></li>").addClass("cell")
      
         bord.append(li);
        }
     }
-
-
 makeTheList()
 
 ///  set up the event listener for a card. If a card is clicked:
@@ -23,37 +20,39 @@ let flag = true;
 const cards = $(".cell");
 let turen = document.querySelector(".turen");
 let move = 0;
-const winArry =[];
+let winArry =[];
 turen.innerHTML = "It is X Turn "
 
 for (let i=0; i < cards.length ;  i++){
     let card = cards[i];
     card.addEventListener("click", function(){
       if (card.innerText === "" ) { /* make sure user not changing the input */
-          if ( flag){
+          if ( flag) {
             turen.innerHTML = "It is O Turn "
             card.innerText = "X";
             flag = false;
             move ++;
-            
             console.log(move);
             if (move >= 3) {
-                checkWinnerOfX(cards);
+                checkWinnerOfX(cards);    
             }
-          } else {
+          } else {  // O turn
              card.innerText = "O";
              flag = true;
-             turen.innerHTML = "It is X Turn"
+             turen.innerHTML = "It is X Turn";
              checkWinnerOfO(cards);
-            }
-        } else {
+          }
+      } else {
           console.log("it is taken")
         }
-        if (move === 5 && winArry === 0)
-        {
-            console.log('tie')
-            tieWindow()
-        }
+      // if ((move === 5)&&(winArry.length === 0))
+      //   {
+      //    console.log('tie');
+      //    tieWindow(); 
+      //   }
+      checkIfTie()
+       
+        
     })
       
      
@@ -103,7 +102,8 @@ const checkWinnerOfX = function(cards){
            cards[4].textContent === "X" &&
            cards[6].textContent === "X" )
             {  winArry.push(2,4,6)
-                winnerWindow()}  
+                winnerWindow()} 
+                
             
 }
 
@@ -146,6 +146,13 @@ const checkWinnerOfO= function(cards){
 
   
 }
+ const checkIfTie = function(){
+  if ((move === 5)&& (winArry.length === 0))
+   {
+   console.log('tie');
+   tieWindow(); 
+   }
+ }
 
 let modal = document.querySelector('.modal');
 let info = document.querySelector('.info');
@@ -153,8 +160,7 @@ let playmore = document.querySelector('button');
 function winnerWindow()
    {
      modal.style.display = 'block';
-    
-     info.innerHTML = '<h1> You Won!</h1><br><p> With total move of <br> Wooooooo! </p>';
+     info.innerHTML = '<h1> You Won!</h1><br><p> <br> Wooooooo! </p>';
  }
  function tieWindow()
    {
