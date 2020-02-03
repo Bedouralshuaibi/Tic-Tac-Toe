@@ -23,6 +23,15 @@ let move = 0;
 let winArry =[];
 turen.innerHTML = "It is X Turn "
 
+/////////// hover change the color 
+
+cards.hover(function(){
+  $(this).css("background-color", "#32a8a6");
+  }, function(){
+  $(this).css("background-color", "#2e3d49");
+});
+
+///////////////////////////////
 for (let i=0; i < cards.length ;  i++){
     let card = cards[i];
     card.addEventListener("click", function(){
@@ -161,6 +170,10 @@ function winnerWindow()
    {
      modal.style.display = 'block';
      info.innerHTML = '<h1> You Won!</h1><br><p> <br> Wooooooo! </p>';
+     
+      var x = document.getElementById("myAudio").autoplay;
+      document.getElementById("demo").innerHTML = x;
+    
  }
  function tieWindow()
    {
