@@ -122,3 +122,11 @@ body {
   cursor: pointer;
   
 }
+
+/* round result */
+.result{
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  justify-content: space-between;
+}
