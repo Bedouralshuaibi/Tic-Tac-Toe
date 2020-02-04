@@ -29,8 +29,13 @@ function enableAutoplayLosser() {
 
 ///  set up the event listener for a card. If a card is clicked:
 // display the card's symbol
-let counterX = 0;
+let counterWinX = 0;
+let counterWinO = 0
 let tie = 0;
+let loserX = 0;
+let loserO = 0;
+let round = 0;
+
 let flag = true;
 let cards = $(".cell");
 let turen = document.querySelector(".turen");
@@ -60,49 +65,57 @@ const checkWinnerOfX = function (cards) {
     cards[2].textContent === "X") {
     winArry.push(0, 1, 2);
     counterWinerX();
+    counterLoserO();
     winnerWindow()
   } else if (cards[3].textContent === "X" &&
     cards[4].textContent === "X" &&
     cards[5].textContent === "X") {
     winArry.push(3, 4, 5);
     counterWinerX();
+    counterLoserO();
     winnerWindow();
   } else if (cards[6].textContent === "X" &&
     cards[7].textContent === "X" &&
     cards[8].textContent === "X") {
     winArry.push(6, 7, 8)
     counterWinerX();
-    winnerWindow()
+    counterLoserO();
+    winnerWindow();
   } else if (cards[0].textContent === "X" &&
     cards[3].textContent === "X" &&
     cards[6].textContent === "X") {
     winArry.push(0, 3, 6);
     counterWinerX();
+    counterLoserO();
     winnerWindow();
   } else if (cards[1].textContent === "X" &&
     cards[4].textContent === "X" &&
     cards[7].textContent === "X") {
     winArry.push(1, 4, 7);
     counterWinerX();
+    counterLoserO();
     winnerWindow()
   } else if (cards[2].textContent === "X" &&
     cards[5].textContent === "X" &&
     cards[8].textContent === "X") {
     winArry.push(2, 5, 8);
     counterWinerX();
-    winnerWindow()
+    counterLoserO();
+    winnerWindow();
   } else if (cards[0].textContent === "X" &&
     cards[4].textContent === "X" &&
     cards[8].textContent === "X") {
     winArry.push(0, 4, 8);
     counterWinerX();
-    winnerWindow()
+    counterLoserO();
+    winnerWindow();
   } else if (cards[2].textContent === "X" &&
     cards[4].textContent === "X" &&
     cards[6].textContent === "X") {
     winArry.push(2, 4, 6);
     counterWinerX();
-    winnerWindow()
+    counterLoserO();
+    winnerWindow();
   }
 
 
@@ -113,35 +126,51 @@ const checkWinnerOfO = function (cards) {
   if (cards[0].textContent === "O" &&
     cards[1].textContent === "O" &&
     cards[2].textContent === "O") {
-    winnerWindow()
+    counterWinerO();
+    counterloserX();
+    winnerWindow();
   } else if (cards[3].textContent === "O" &&
     cards[4].textContent === "O" &&
     cards[5].textContent === "O") {
-    winnerWindow()
+    counterWinerO();
+    counterloserX();
+    winnerWindow();
   } else if (cards[6].textContent === "O" &&
     cards[7].textContent === "O" &&
     cards[8].textContent === "O") {
-    winnerWindow()
+      counterWinerO();
+      counterloserX();
+      winnerWindow();
   } else if (cards[0].textContent === "O" &&
     cards[3].textContent === "O" &&
     cards[6].textContent === "O") {
-    winnerWindow()
+      counterWinerO();
+      counterloserX();
+      winnerWindow();
   } else if (cards[1].textContent === "O" &&
     cards[4].textContent === "O" &&
     cards[7].textContent === "O") {
-    winnerWindow()
+      counterWinerO();
+      counterloserX();
+      winnerWindow();
   } else if (cards[2].textContent === "O" &&
     cards[5].textContent === "O" &&
     cards[8].textContent === "O") {
-    winnerWindow()
+      counterWinerO();
+      counterloserX();
+      winnerWindow();
   } else if (cards[0].textContent === "O" &&
     cards[4].textContent === "O" &&
     cards[8].textContent === "O") {
-    winnerWindow()
+      counterWinerO();
+      counterloserX();
+      winnerWindow()
   } else if (cards[2].textContent === "O" &&
     cards[4].textContent === "O" &&
     cards[6].textContent === "O") {
-    winnerWindow()
+      counterWinerO();
+      counterloserX();
+      winnerWindow()
   }
 
 
@@ -189,6 +218,7 @@ const reset = function(){
   /// call them agein //
   turen.innerHTML = "The turn is for <b>X</b> user";
   makeTheList();
+  roundGame();
   flag = true;
   cards = $(".cell");
   cards.hover(hoverIn,hoverOut );
@@ -246,15 +276,38 @@ restart.addEventListener('click', (e) => {
 
 /////////// result ///////////////////
 
-let winyX = document.querySelector(".winyX");
+let winX = document.querySelector(".winyX");
 const counterWinerX = function(){
-  counterX +=1;
-  winyX.innerHTML = "<p>win: " + counterX + "</p>" ;
+  counterWinX +=1;
+  winX.innerHTML = "<p>win: " + counterWinX + "</p>" ;
 }
 
- let tiediv = document.querySelector(".tieyX");
+let loseX = document.querySelector(".loseyX");
+const counterloserX = function(){
+  loserX +=1;
+  loseX.innerHTML = "<p>lose: " + loserX + "</p>" ;
+}
+
+ let winO = document.querySelector(".winyO");
+  const counterWinerO= function(){
+  counterWinO +=1;
+  winO.innerHTML = "<p>win:  " + counterWinO + "</p>";
+ }
+
+ let loseO = document.querySelector(".loseyO");
+  const counterLoserO= function(){
+  loserO +=1;
+  loseO.innerHTML = "<p>lose:  " + loserO + "</p>";
+ }
+ let tiediv = document.querySelector(".tiey");
   const tieForBoth = function(){
   tie +=1;
- tiediv.innerHTML = "<p>tie:  " + tie + "</p>";
+ tiediv.innerHTML = "<p>  " + tie + "</p>";
+ }
+
+ let roundDiv = document.querySelector(".roundCounter");
+  const roundGame = function(){
+  round +=1;
+ roundDiv.innerHTML = "<p>  " + round + "</p>";
  }
 

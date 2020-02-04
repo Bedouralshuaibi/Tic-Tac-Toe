@@ -14,6 +14,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color:#ECF0F1;
 }
 
 
@@ -23,6 +24,7 @@ body {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        
     }
 
 .bord{
@@ -37,7 +39,8 @@ body {
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center; 
-        box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);  
+        box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5); 
+        background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%); 
 }
  .cell
 {
@@ -129,4 +132,5 @@ body {
   flex-direction: row;
   width: 250px;
   justify-content: space-between;
+  padding-bottom: 20px;
 }

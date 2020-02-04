@@ -1,18 +1,37 @@
 @media only screen and (min-width: 600px)
 {
+    .respo{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+    }
     .bord {
-        width: 500px;
-        min-height: 500px;
+        width: 400px;
+        min-height: 400px;
+        margin-top: 15px;
+        
     }
     .cell{
-    height: 160px;
-    width: 160px;
+    height: 130px;
+    width: 130px;
     font-size: 5em;
     }
     .banner{
-        width: 400px;
-        font-size: 1.3em;
+        width: 730px;
+        font-size: 1.5em;
+        border-bottom: black 1px solid;
+        
+       
     }
+    .turen {
+        float: right; 
+      }
+      .restart {
+        float: left;
+        font-size: .7em;
+        
+      }
     .modal {
         padding-top: 200px;
     }
@@ -25,4 +44,15 @@
     .playmore{
         font-size: 17px;
     }
+    .result{
+        padding-right: 20px;
+        font-size: 1.3em;
+       
+       
+
+    }
+}
+
+@media only screen and (min-width: 1440px){
+    
 }
