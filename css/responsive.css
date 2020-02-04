@@ -1,0 +1,28 @@
+@media only screen and (min-width: 600px)
+{
+    .bord {
+        width: 500px;
+        min-height: 500px;
+    }
+    .cell{
+    height: 160px;
+    width: 160px;
+    font-size: 5em;
+    }
+    .banner{
+        width: 400px;
+        font-size: 1.3em;
+    }
+    .modal {
+        padding-top: 200px;
+    }
+    .modal-content {
+        width: 60%;
+    }
+    .modal-content h1{
+        font-size: 3em;
+    }
+    .playmore{
+        font-size: 17px;
+    }
+}

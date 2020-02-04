@@ -177,8 +177,8 @@ function winnerWindow()
      modal.style.display = 'block';
      enableAutoplayWinner()
      if (winArry != 0){
-     info.innerHTML = '<h1> X user is Won!</h1><br><p> <br> Wooooooo! </p>';
-     } else {info.innerHTML = '<h1> O user is Won!</h1><br><p> <br> Wooooooo! </p>'}
+     info.innerHTML = '<h1> X user is Won!</h1><br><p> Wooooooo! </p>';
+     } else {info.innerHTML = '<h1> O user is Won!</h1><br><p> Wooooooo! </p>'}
       
     
  }
