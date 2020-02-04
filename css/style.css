@@ -75,7 +75,9 @@ body {
   padding-top: 20px;
 }
 
-
+.round, .tie, .forX, .forO{
+  text-align: center;
+}
 /*//////////// model //////*/
 
 .modal {

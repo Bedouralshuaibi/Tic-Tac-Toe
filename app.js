@@ -308,6 +308,6 @@ const counterloserX = function(){
  let roundDiv = document.querySelector(".roundCounter");
   const roundGame = function(){
   round +=1;
- roundDiv.innerHTML = "<p>  " + round + "</p>";
+ roundDiv.innerHTML = "<p>" + round + "</p>";
  }
 
