@@ -13,8 +13,17 @@ const makeTheList = function(){
     }
 makeTheList()
 ////////// audio///////
-// var audioElement = new Audio('/Users/bedourfsh/sei/projects/Tic-Tac-Toe/Winning-sound-effect');
 
+var winner = document.querySelector("#myAudioWin");
+var losser= document.querySelector("#myAudioLose");
+function enableAutoplayWinner() { 
+  winner.autoplay = true;
+  winner.load();
+}
+function enableAutoplayLosser() { 
+  losser.autoplay = true;
+ losser.load();
+}
 
 ///  set up the event listener for a card. If a card is clicked:
 // display the card's symbol
@@ -26,7 +35,7 @@ let move = 0;
 let winArry =[];
 turen.innerHTML = "The turn is for <b>X</b> user";
 
-/////////// hover change the color 
+/////////// hover change the color ///////
 
 cards.hover(function(){
   $(this).css("background-color", "#32a8a6");
@@ -166,7 +175,7 @@ let playmore = document.querySelector('button');
 function winnerWindow()
    {
      modal.style.display = 'block';
-    //  audioElement.play(); // audio
+     enableAutoplayWinner()
      if (winArry != 0){
      info.innerHTML = '<h1> X user is Won!</h1><br><p> <br> Wooooooo! </p>';
      } else {info.innerHTML = '<h1> O user is Won!</h1><br><p> <br> Wooooooo! </p>'}
@@ -176,7 +185,7 @@ function winnerWindow()
  function tieWindow()
    {
      modal.style.display = 'block';
-    
+     enableAutoplayLosser() 
      info.innerHTML = "<p> it's a Tie </p>";
     }
   playmore.addEventListener('click', function()
