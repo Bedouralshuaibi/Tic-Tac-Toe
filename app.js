@@ -12,6 +12,7 @@ const makeTheList = function () {
   }
 }
 makeTheList()
+
 ////////// audio///////
 
 var winner = document.querySelector("#myAudioWin");
@@ -52,7 +53,7 @@ const hoverIn = function () {
 const hoverOut = function () {
   $(this).css("background-color", "#2e3d49");
 }
-cards.hover(hoverIn,hoverOut );
+cards.hover(hoverIn, hoverOut);
 
 
 
@@ -138,45 +139,45 @@ const checkWinnerOfO = function (cards) {
   } else if (cards[6].textContent === "O" &&
     cards[7].textContent === "O" &&
     cards[8].textContent === "O") {
-      counterWinerO();
-      counterloserX();
-      winnerWindow();
+    counterWinerO();
+    counterloserX();
+    winnerWindow();
   } else if (cards[0].textContent === "O" &&
     cards[3].textContent === "O" &&
     cards[6].textContent === "O") {
-      counterWinerO();
-      counterloserX();
-      winnerWindow();
+    counterWinerO();
+    counterloserX();
+    winnerWindow();
   } else if (cards[1].textContent === "O" &&
     cards[4].textContent === "O" &&
     cards[7].textContent === "O") {
-      counterWinerO();
-      counterloserX();
-      winnerWindow();
+    counterWinerO();
+    counterloserX();
+    winnerWindow();
   } else if (cards[2].textContent === "O" &&
     cards[5].textContent === "O" &&
     cards[8].textContent === "O") {
-      counterWinerO();
-      counterloserX();
-      winnerWindow();
+    counterWinerO();
+    counterloserX();
+    winnerWindow();
   } else if (cards[0].textContent === "O" &&
     cards[4].textContent === "O" &&
     cards[8].textContent === "O") {
-      counterWinerO();
-      counterloserX();
-      winnerWindow()
+    counterWinerO();
+    counterloserX();
+    winnerWindow()
   } else if (cards[2].textContent === "O" &&
     cards[4].textContent === "O" &&
     cards[6].textContent === "O") {
-      counterWinerO();
-      counterloserX();
-      winnerWindow()
+    counterWinerO();
+    counterloserX();
+    winnerWindow()
   }
 
 
 }
 const checkIfTie = function () {
-  
+
   if ((move === 5) && (winArry.length === 0)) {
     console.log('tie');
     tieForBoth();
@@ -205,7 +206,7 @@ function tieWindow() {
   enableAutoplayLosser()
   info.innerHTML = "<p> it's a Tie </p>";
 }
-const reset = function(){
+const reset = function () {
   console.log("play agin")
   modal.style.display = 'none';
   $("li").remove();
@@ -221,17 +222,17 @@ const reset = function(){
   roundGame();
   flag = true;
   cards = $(".cell");
-  cards.hover(hoverIn,hoverOut );
+  cards.hover(hoverIn, hoverOut);
   clicking();
-  
+
 }
 playmore.addEventListener('click', reset);
 
 
 
 //////////////clicking//////////////
-const clickListener = function() {
-  
+const clickListener = function () {
+
   if (this.innerText === "") {
     /* make sure user not changing the input */
     if (flag) {
@@ -254,17 +255,17 @@ const clickListener = function() {
   } else {
     console.log("it is taken")
   }
-  
+
   checkIfTie()
 }
-////////////  /////
+
 const clicking = function () {
   console.log("listen clicking")
   for (let i = 0; i < cards.length; i++) {
-   cards[i].addEventListener("click", clickListener);
+    cards[i].addEventListener("click", clickListener);
   }
 }
- clicking()
+clicking()
 ////////////////////////
 
 
@@ -277,37 +278,36 @@ restart.addEventListener('click', (e) => {
 /////////// result ///////////////////
 
 let winX = document.querySelector(".winyX");
-const counterWinerX = function(){
-  counterWinX +=1;
-  winX.innerHTML = "<p>win: " + counterWinX + "</p>" ;
+const counterWinerX = function () {
+  counterWinX += 1;
+  winX.innerHTML = "<p>win: " + counterWinX + "</p>";
 }
 
 let loseX = document.querySelector(".loseyX");
-const counterloserX = function(){
-  loserX +=1;
-  loseX.innerHTML = "<p>lose: " + loserX + "</p>" ;
+const counterloserX = function () {
+  loserX += 1;
+  loseX.innerHTML = "<p>lose: " + loserX + "</p>";
 }
 
- let winO = document.querySelector(".winyO");
-  const counterWinerO= function(){
-  counterWinO +=1;
+let winO = document.querySelector(".winyO");
+const counterWinerO = function () {
+  counterWinO += 1;
   winO.innerHTML = "<p>win:  " + counterWinO + "</p>";
- }
+}
 
- let loseO = document.querySelector(".loseyO");
-  const counterLoserO= function(){
-  loserO +=1;
+let loseO = document.querySelector(".loseyO");
+const counterLoserO = function () {
+  loserO += 1;
   loseO.innerHTML = "<p>lose:  " + loserO + "</p>";
- }
- let tiediv = document.querySelector(".tiey");
-  const tieForBoth = function(){
-  tie +=1;
- tiediv.innerHTML = "<p>  " + tie + "</p>";
- }
+}
+let tiediv = document.querySelector(".tiey");
+const tieForBoth = function () {
+  tie += 1;
+  tiediv.innerHTML = "<p>  " + tie + "</p>";
+}
 
- let roundDiv = document.querySelector(".roundCounter");
-  const roundGame = function(){
-  round +=1;
- roundDiv.innerHTML = "<p>" + round + "</p>";
- }
-
+let roundDiv = document.querySelector(".roundCounter");
+const roundGame = function () {
+  round += 1;
+  roundDiv.innerHTML = "<p>" + round + "</p>";
+}
