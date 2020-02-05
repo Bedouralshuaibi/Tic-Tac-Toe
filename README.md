@@ -53,4 +53,20 @@ The player win the game when he select a row, colum or across of all cells first
 
 * Create an **AI** opponent: teach JavaScript to play an unbeatable game against the user.
 
-* add drop list called **Moderate** to let the user select the the level of difficulty when he play agines the computer[Easy - medium - hard].
+* add drop list called **Moderate** to let the user select the the level of difficulty when he play agines the computer[Easy - medium - hard]. 
+
+##### Demo
+
+##### In desktop:
+![wireframe](sources/desktop.png)
+
+##### In mobile devices:
+
+![wireframe](sources/mobile.png)
+
+##### Tie window
+![wireframe](sources/tiewindow.png)
+
+##### winner window
+
+![wireframe](sources/winnerwindow.png)
