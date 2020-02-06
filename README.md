@@ -42,8 +42,8 @@ it is - **a game!** in which two players seek in alternate turns to complete a r
 
 ### Development process
 
-First starting with the designing the interfce then start with coding.
-Facing some challenging in the design phrase, how to make the flow of the bord and result area, set align in good way. However after some trecks the design fixed.
+First starting with the designing the interfce then coding.
+Facing some challenging in the designing phrase, how to make the flow of the bord and result area, set align in good way. However after some trecks the design fixed.
 
 ### The winner conditions
 
@@ -57,16 +57,16 @@ The player win the game when he select a row, colum or across of all cells first
 
 ##### Demo
 
-##### In desktop:
+###### In desktop:
 ![wireframe](sources/desktop.png)
 
-##### In mobile devices:
+###### In mobile devices:
 
 ![wireframe](sources/mobile.png)
 
-##### Tie window
+###### Tie window
 ![wireframe](sources/tiewindow.png)
 
-##### winner window
+###### winner window
 
 ![wireframe](sources/winnerwindow.png)

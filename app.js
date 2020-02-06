@@ -1,17 +1,28 @@
-let list = ["", "", "", "", "",
-  "", "", "", ""
-];
-
 const bord = $(".bord");
 
 const makeTheList = function () {
-  for (let i = 0; i < list.length; i++) {
+  for (let i = 0; i < 9; i++) {
     const li = $("<li></li>").addClass("cell")
-
     bord.append(li);
   }
 }
 makeTheList()
+
+/// variables initialized ////
+
+let counterWinX = 0;
+let counterWinO = 0
+let tie = 0;
+let loserX = 0;
+let loserO = 0;
+let round = 0;
+
+let flag = true;
+let cards = $(".cell");
+let turen = document.querySelector(".turen");
+let move = 0;
+let winArry = [];
+turen.innerHTML = "The turn is for <b>X</b> user";
 
 ////////// audio///////
 
@@ -28,24 +39,6 @@ function enableAutoplayLosser() {
   losser.load();
 }
 
-///  set up the event listener for a card. If a card is clicked:
-// display the card's symbol
-let counterWinX = 0;
-let counterWinO = 0
-let tie = 0;
-let loserX = 0;
-let loserO = 0;
-let round = 0;
-
-let flag = true;
-let cards = $(".cell");
-let turen = document.querySelector(".turen");
-let move = 0;
-let winArry = [];
-turen.innerHTML = "The turn is for <b>X</b> user";
-
-
-
 /////////// hover change the color ///////
 const hoverIn = function () {
   $(this).css("background-color", "#32a8a6");
@@ -55,9 +48,7 @@ const hoverOut = function () {
 }
 cards.hover(hoverIn, hoverOut);
 
-
-
-
+////// checking ///////
 
 const checkWinnerOfX = function (cards) {
 
@@ -179,12 +170,12 @@ const checkWinnerOfO = function (cards) {
 const checkIfTie = function () {
 
   if ((move === 5) && (winArry.length === 0)) {
-    console.log('tie');
     tieForBoth();
     tieWindow();
   }
 }
 
+///////// winner window ////////
 let modal = document.querySelector('.modal');
 let info = document.querySelector('.info');
 let playmore = document.querySelector('button');
@@ -206,6 +197,8 @@ function tieWindow() {
   enableAutoplayLosser()
   info.innerHTML = "<p> it's a Tie </p>";
 }
+
+//////// play more button //////
 const reset = function () {
   console.log("play agin")
   modal.style.display = 'none';
@@ -214,28 +207,23 @@ const reset = function () {
   while (winArry.length) {
     winArry.pop();
   }
-  console.log(move);
-  console.log(winArry);
-  /// call them agein //
+  /// call them agine //
   turen.innerHTML = "The turn is for <b>X</b> user";
   makeTheList();
   roundGame();
   flag = true;
   cards = $(".cell");
   cards.hover(hoverIn, hoverOut);
-  clicking();
+   clicking();
 
 }
 playmore.addEventListener('click', reset);
 
-
-
 //////////////clicking//////////////
 const clickListener = function () {
 
-  if (this.innerText === "") {
-    /* make sure user not changing the input */
-    if (flag) {
+  if (this.innerText === "") { /* make sure user not changing the input   */
+    if (flag) { /// bloolen to give turn to x and o
       turen.innerHTML = "The turn is for <b>O</b> user "
       this.innerText = "X";
       flag = false;
@@ -244,7 +232,6 @@ const clickListener = function () {
       if (move >= 3) {
         console.log(move + " agine");
         checkWinnerOfX(cards);
-        console.log("hii")
       }
     } else { // O turn
       this.innerText = "O";
@@ -265,13 +252,12 @@ const clicking = function () {
     cards[i].addEventListener("click", clickListener);
   }
 }
-clicking()
-////////////////////////
 
+clicking()  ////////////game start here ///////////
 
 /////// Restart Button //////
 let restart = document.querySelector('.restart');
-restart.addEventListener('click', (e) => {
+restart.addEventListener('click', function() {
   window.location.reload();
 });
 
